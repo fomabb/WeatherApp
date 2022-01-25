@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
                 if (user_field.getText().toString().trim().equals(""))
                     Toast.makeText(MainActivity.this, R.string.no_user_input, Toast.LENGTH_LONG).show();
                 else {
+                    String city = user_field.getText().toString();
+                    String key = "1de666f472cb37b12f32adc19b36e663";
+                    String url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + key + "&units=metric&lang=ru";
 
                 }
             }
