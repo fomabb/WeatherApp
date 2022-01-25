@@ -42,11 +42,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (user_field.getText().toString().trim().equals(""))
-                    Toast.makeText(MainActivity.this, R.string.no_user_input, Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, R.string.no_user_input,
+                            Toast.LENGTH_LONG).show();
                 else {
                     String city = user_field.getText().toString();
                     String key = "1de666f472cb37b12f32adc19b36e663";
-                    String url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + key + "&units=metric&lang=ru";
+                    String url = "https://api.openweathermap.org/data/2.5/weather?q=" + city +
+                            "&appid=" + key + "&units=metric&lang=ru";
 
                     new GetUrlData().execute(url);
                 }
@@ -107,7 +109,8 @@ public class MainActivity extends AppCompatActivity {
 
             try {
                 JSONObject jsonObject = new JSONObject(result);
-                result_info.setText("Температура: " + jsonObject.getJSONObject("main").getDouble("temp"));
+                result_info.setText("Температура: " + jsonObject.getJSONObject("main")
+                        .getDouble("temp"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
